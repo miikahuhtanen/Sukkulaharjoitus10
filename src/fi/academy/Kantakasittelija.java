@@ -16,6 +16,6 @@ public class Kantakasittelija {
     }
 
     public void haeTiedot() {
-        
+
     }
 }
