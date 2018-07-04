@@ -49,4 +49,5 @@ public class Kysymysvaihtoehdot {
 //            this.oikeavastaus = true;
 //        }
     }
+
 }
