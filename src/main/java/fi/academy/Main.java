@@ -1,10 +1,9 @@
-package fi.academy;
+package main.java.fi.academy;
 
 
 public class Main {
 
     public static void main(String[] args) {
-
 
     }
 }
