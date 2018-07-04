@@ -1,4 +1,4 @@
-package main.java.fi.academy;
+package fi.academy;
 
 public class Kysymys {
 }
