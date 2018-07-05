@@ -17,6 +17,47 @@ public class Kysymysvaihtoehdot {
         this.oikeavastaus = oikeavastaus;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getKysymysID() {
+        return kysymysID;
+    }
+
+    public void setKysymysID(int kysymysID) {
+        this.kysymysID = kysymysID;
+    }
+
+    public String getTeksti() {
+        return teksti;
+    }
+
+    public void setTeksti(String teksti) {
+        this.teksti = teksti;
+    }
+
+    public boolean isOikeavastaus() {
+        return oikeavastaus;
+    }
+
+    public void setOikeavastaus(boolean oikeavastaus) {
+        this.oikeavastaus = oikeavastaus;
+    }
+
+    public String toString(){
+        return "Kysymysvaihtoehto{ " +
+                "id: " + this.id +
+                ", kysymysID: " + this.kysymysID +
+                ", teksti: " + this.teksti +
+                ", oikeavastaus: " + this.oikeavastaus +"}";
+
+    }
+
     public Kysymysvaihtoehdot(ResultSet rs) throws SQLException {
         for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
             String label = rs.getMetaData().getColumnName(i);
