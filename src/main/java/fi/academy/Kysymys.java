@@ -1,7 +1,11 @@
 package fi.academy;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kysymys {
     private int id;
@@ -31,6 +35,22 @@ public class Kysymys {
                 ", tyyppiID=" + tyyppiID +
                 ", kategoriaID=" + kategoriaID +
                 '}';
+    }
+
+    public List<Kysymysvaihtoehdot> haeVaihtoehdotListaan(Connection con) throws SQLException {
+        ArrayList<Kysymysvaihtoehdot> lista = new ArrayList<>();
+
+        String lauseke = "select * from kysymysvaihtoehdot " +
+                "where kysymysID = ?";
+        PreparedStatement lause = con.prepareStatement(lauseke);
+        lause.setInt(1,this.id);
+        ResultSet rs = lause.executeQuery();
+
+        while (rs.next()){
+            lista.add(new Kysymysvaihtoehdot(rs));
+        }
+        rs.close();
+        return lista;
     }
 
     public int getId() {

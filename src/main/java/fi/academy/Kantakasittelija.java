@@ -28,9 +28,29 @@ public class Kantakasittelija {
         ResultSet rs = lause.executeQuery();
 
         while (rs.next()){
-            lista.add(new Kysymys(rs));
+            Kysymys tempKys = new Kysymys(rs);
+            int tempId = tempKys.getId();
+            lista.add(tempKys);
+            System.out.println(tempKys.haeVaihtoehdotListaan(con));
         }
         rs.close();
         return lista;
     }
+
+//    public static List<Kysymysvaihtoehdot> haeVaihtoehdotListaan(Connection con, int id) throws SQLException {
+//        ArrayList<Kysymysvaihtoehdot> lista = new ArrayList<>();
+//
+//        String lauseke = "select * from kysymysvaihtoehdot " +
+//                "where kysymysID = ?";
+//        PreparedStatement lause = con.prepareStatement(lauseke);
+//        lause.setInt(1,id);
+//        ResultSet rs = lause.executeQuery();
+//
+//        while (rs.next()){
+//            lista.add(new Kysymysvaihtoehdot(rs));
+//        }
+//        rs.close();
+//        return lista;
+//    }
 }
+//TODO Metodi, joka luo listan tietyn
