@@ -11,6 +11,7 @@ public class Kantakasittelija {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tenttikysymykset?useSSL=false&serverTimezone=UTC", "root", "password");
             System.out.println("Yhteys onnistui!");
 
+            //testaa listan onnistumista
             System.out.println(haeKysymyksetListaan(con));
 
 
