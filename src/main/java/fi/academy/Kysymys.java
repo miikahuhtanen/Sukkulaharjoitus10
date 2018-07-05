@@ -13,6 +13,7 @@ public class Kysymys {
     private int tyyppiID;
     private int kategoriaID;
 
+
     public Kysymys(int id, String teksti, int tyyppiID, int kategoriaID){
         this.id = id;
         this.teksti = teksti;

@@ -6,14 +6,13 @@ import java.util.List;
 
 public class Kantakasittelija {
 
-    public void luoYhteys() {
+    private Connection con;
+
+    public Kantakasittelija(){
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tenttikysymykset?useSSL=false&serverTimezone=UTC", "root", "password");
             System.out.println("Yhteys onnistui!");
-
-            //testaa listan onnistumista
-            System.out.println(haeKysymyksetListaan(con));
-
+            this.con = con;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -29,12 +28,20 @@ public class Kantakasittelija {
 
         while (rs.next()){
             Kysymys tempKys = new Kysymys(rs);
-            int tempId = tempKys.getId();
+            //int tempId = tempKys.getId();
             lista.add(tempKys);
-            System.out.println(tempKys.haeVaihtoehdotListaan(con));
+            //System.out.println(tempKys.haeVaihtoehdotListaan(con));
         }
         rs.close();
         return lista;
+    }
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public void setCon(Connection con) {
+        this.con = con;
     }
 
 //    public static List<Kysymysvaihtoehdot> haeVaihtoehdotListaan(Connection con, int id) throws SQLException {
